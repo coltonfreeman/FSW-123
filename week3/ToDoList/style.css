@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+ 
+}
+
+
+
+label{
+    margin-right: 60px;
+}
+
+#moreTodos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    justify-content: space-around;
+    flex-direction:column;
+}
+
+
+
+

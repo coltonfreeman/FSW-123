@@ -1,0 +1,50 @@
+
+.dies 
+{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+h1
+{
+text-align: center;
+}
+
+.die 
+{
+display: flex;
+justify-content: center;
+align-items: center;
+border: 4px solid black;
+border-radius: 20px;
+width: 150px;
+height: 150px;
+margin: 20px;
+color: white;
+font-size: 30px;
+    background-color: rgb(141, 43, 141);
+    border: none;
+
+}
+
+.btn 
+{
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+  
+
+}
+
+button 
+{
+background-color: rgb(141, 43, 141);
+padding: 15px 20px 10px 20px;
+  color: white;
+    border: none;
+    border-radius: 15px;
+
+}
