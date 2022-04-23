@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 function GiphyForm() {
-    const [search, setSearch] = useState("cat");
+    const [search, setSearch] = useState("snake");
     const [imgSrc, setImgSrc] = useState("");
     const [alt, setAlt] = useState("");
 
