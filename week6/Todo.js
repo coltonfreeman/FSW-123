@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import EditTodoForm from './EditTodoForm';
 
-function Todo({todo, completeTodo, deleteTodo, editTodo}) {
+function Todo({todo, deleteTodo, editTodo}) {
     const [isChecked, setIsChecked] = useState(todo.isCompleted);
     const [isEdited, setIsEdited] = useState(false);
     

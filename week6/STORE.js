@@ -1,9 +1,27 @@
-import {v4 as uuidv4} from "uuid"
+import { v4 as uuidv4 } from 'uuid';
 
-export const listofTodos =[
-	{text: "Do 30 min workout", id: uuidv4(), isComplete: false},
-	{text: "walk for an hour", id: uuidv4(), isComplete: false},
-	{text:  "Take Viatmins", id: uuidv4(), isComplete: false},
-	{text: "Drink 1 gallon of water", id: uuidv4(), isComplete: false},
-	{text: "Check blood pressure", id: uuidv4(), isComplete: false}
+export const listOfTodos = [
+    {   id: uuidv4(),
+        text: "Do 30 min workout",
+        isCompleted: false
+    },
+    {   id: uuidv4(),
+        text: "walk for an hour",
+        isCompleted: false
+    }, 
+    { 
+        id: uuidv4(),
+        text: "Take Viatmins",
+        isCompleted: false
+    },
+    { 
+        id: uuidv4(),
+        text: "Drink 1 gallon of water",
+        isCompleted: false
+    },
+    {
+	    id: uuidv4(),
+		text: "Check blood pressure",
+		isCompleted: false
+	}	
 ];
