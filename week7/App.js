@@ -1,56 +1,29 @@
 import './App.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import RecycledItem from './RecycledItem';
-import AddItemFormHandler from './AddItemFormHandler';
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
+import Home from './Pages/Home';
+import Jokes from './Pages/Jokes';
+import Giphy from './Pages/Giphy';
+import NoMatch from './Pages/NoMatch';
 
 function App() {
-  const [recycledItems, setRecycledItems] = useState([]);
-
-  const getItems = () => {
-    axios.get('/itemsIntake')
-      .then(res => setRecycledItems(res.data))
-      .catch(err => console.log(err))
-  }
-
-  const addItems = (newItem) => {
-    axios.post('/itemsIntake', newItem)
-      .then(res => setRecycledItems(prevItems => [...prevItems, res.data]))
-      .catch(err => console.log(err))
-  }
-
-  const deleteItem = (itemId) => {
-    axios.delete(`/itemsIntake/${itemId}`)
-      .then(setRecycledItems(prevItems => prevItems.filter(item => item._id !== itemId)))
-      .catch(err => console.log(err))
-  }
-
-  const editItem = (updates, itemId) => {
-    axios.put(`/itemsIntake/${itemId}`, updates)
-      .then(res => {
-        setRecycledItems(prevItems => prevItems.map(item => item._id !== itemId ? item : res.data))
-        getItems();
-      })
-      .catch(err => console.log(err))
-  }
-
-  const filter = () => {
-    axios.get('/itemsIntake/search/edible?edible=false')
-    .then(res => setRecycledItems(res.data))
-    .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    getItems();
-  }, []);
-
-  const recycledList = recycledItems.map(item => <RecycledItem {...item} deleteItem={deleteItem} editItem={editItem} key={item.name} filter ={filter} />)
-
   return (
-    <div className='recycledItems'>
-      <AddItemFormHandler key ='formHandler' filter ={filter} btnText='Recycle Item' submit={addItems}/>
-      {recycledList}
-    </div>
+    <>
+      <BrowserRouter>
+        <header>
+          <li className="links"><Link to="/">Home</Link></li>
+          <li className="links"><Link to="/jokes">Jokes</Link></li>
+          <li className="links"><Link to="/giphy">Giphy</Link></li>
+        </header>
+        <main>
+          <Routes>
+            <Route exact ={true} path ="/" element={<Home/>}/>
+            <Route path="/jokes" element={<Jokes/>}/>
+            <Route path="/giphy" element={<Giphy initialQuery="jokes"/>}/>
+            <Route path="*" element={<NoMatch/>}/>
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </>
   );
 }
 
